@@ -30,4 +30,4 @@ function Sidebar(spotify) {
   );
 }
 
-export default Sidebar;
+export default Sidebar; 
