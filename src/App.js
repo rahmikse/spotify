@@ -5,6 +5,13 @@ import {getTokenFromUrl} from "./Login/Spotify"
 import SpotifyWebApi from "spotify-web-api-js";
 import Player from "./Players/Player";
 import { useDataLayerValue } from "./Context/DataLayer";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
+import NavbarMenu from "./Navbar/NavbarMenu";
+
 
 const spotify = new SpotifyWebApi();
 
@@ -45,7 +52,25 @@ function App() {
 
   return (
     <div className="App">
-      {token ? <Player spotify={spotify} /> : <Login />}
+       <Router>
+      <>
+        <NavbarMenu/>
+      </>
+      
+
+      <Switch>
+      <Route path="/login" exact>
+          <Login/>
+        </Route>
+      <Route path="/">
+          <Player/>
+        </Route>
+      
+      
+       
+      </Switch>
+    
+  </Router>
     </div>
   );
 }

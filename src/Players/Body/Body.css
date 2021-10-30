@@ -60,3 +60,13 @@
 .body__songs {
   margin: 20px -30px;
 }
+.aurora {
+  display: inline;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: center;
+  height: 200px;
+  width: 200px;
+  margin:20px;
+  margin-bottom: 10px;
+}

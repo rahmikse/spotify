@@ -1,13 +1,13 @@
 import React from "react";
 import "./SideBar.css"
 import SidebarOption from "./SideBarOption";
-import HomeIcon from "@material-ui/icons/Home";
-import SearchIcon from "@material-ui/icons/Search";
-import { LibraryMusic } from "@material-ui/icons";
+import HomeIcon from '@material-ui/icons/Home';
+import SearchIcon from '@material-ui/icons/Search';
+import LibraryMusicIcon from '@material-ui/icons/LibraryMusic';
 import { useDataLayerValue } from "../../Context/DataLayer"
 
-function Sidebar() {
-  const [{ playlists }, dispatch] = useDataLayerValue();
+function Sidebar(spotify) {
+  const [{ playlists }] = useDataLayerValue();
 
   return (
     <div className="sidebar">
@@ -17,15 +17,15 @@ function Sidebar() {
         alt="Spotify logo"
       />
 
-      <SidebarOption title="Home" Icon={HomeIcon} />
-      <SidebarOption title="Search" Icon={SearchIcon} />
-      <SidebarOption title="Your Library" Icon={LibraryMusic} />
+      <SidebarOption title="Ana Sayfa" Icon={HomeIcon} />
+      <SidebarOption title="Kütüphane" Icon={LibraryMusicIcon} />
       <br />
-      <strong className="sidebar__title">PLAYLISTS</strong>
+      <strong className="sidebar__title">ÇALMA LİSTESİ</strong>
       <hr />
-      {playlists?.items?.map((playlist) => (
-        <SidebarOption title={playlist.name} />
-      ))}
+      {playlists?.items?.map((playlist) => {
+                return <SidebarOption spotify={spotify} title={playlist.name} id={playlist.id} key={playlist.id}/>
+            })}
+      
     </div>
   );
 }
