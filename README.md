@@ -1,6 +1,6 @@
 
 
-## Available Scripts
+## Spotify App
 
 In the project directory, you can run:
 
